@@ -126,5 +126,9 @@ def update(frame):
 start_time = time.time()
 
 # Run animation
-ani = FuncAnimation(fig, update, frames=num_particles, interval=1, repeat=False)
-plt.show()
+try:
+    ani = FuncAnimation(fig, update, frames=num_particles, interval=1, repeat=False)
+    plt.show()
+finally:
+    pbar.close()
+
