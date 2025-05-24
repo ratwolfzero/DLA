@@ -98,6 +98,10 @@ pbar = tqdm(total=num_particles)
 # Animation update function
 def update(frame):
     # Compute dynamic spawn radius
+    if not plt.fignum_exists(fig.number):
+       pbar.close()
+       return
+
     spawn_radius = compute_spawn_radius(dla_grid, center, spawn_radius_margin)
     spawn_radius = min(spawn_radius, grid_size // 2 - 1)
 
